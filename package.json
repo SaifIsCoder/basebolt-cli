@@ -1,6 +1,6 @@
 {
   "name": "create-basebolt",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Scaffold a production-ready Next.js SaaS in seconds.",
   "type": "module",
   "bin": {
