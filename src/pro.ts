@@ -11,7 +11,7 @@ export async function showProUpsell(): Promise<boolean> {
   console.log(chalk.green('    ✔ ') + chalk.white('Role-based access control (RBAC)'));
   console.log(chalk.green('    ✔ ') + chalk.white('Production-grade architecture'));
   console.log('');
-  console.log(chalk.cyan('  👉 Get access: basebolt.vercel.app//pro'));
+  console.log(chalk.cyan('  👉 Get access: basebolt.dev/pro'));
   console.log(chalk.gray('  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'));
   console.log('');
 

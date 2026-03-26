@@ -1,7 +1,7 @@
 {
   "name": "create-basebolt",
-  "version": "0.2.7",
-  "description": "Scaffold a production-ready Next.js SaaS in seconds.",
+  "version": "0.3.0",
+  "description": "Scaffold a production-ready Next.js SaaS in seconds. Full auth, dashboard, database, blog, and SEO \u2014 wired and ready to deploy.",
   "type": "module",
   "bin": {
     "create-basebolt": "./dist/index.js"
@@ -9,11 +9,12 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node --esm src/index.ts",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "dist",
-    "templates"
+    "README.md"
   ],
   "dependencies": {
     "@clack/prompts": "^0.9.0",
@@ -32,9 +33,31 @@
   "keywords": [
     "saas",
     "nextjs",
+    "next.js",
     "cli",
     "starter",
-    "boilerplate"
+    "boilerplate",
+    "scaffold",
+    "typescript",
+    "prisma",
+    "supabase",
+    "tailwindcss",
+    "nextauth",
+    "create-app",
+    "create-next-app",
+    "saas-starter",
+    "nextjs-boilerplate",
+    "nextjs-starter",
+    "full-stack"
   ],
+  "homepage": "https://basebolt.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saifecho/create-basebolt"
+  },
+  "bugs": {
+    "url": "https://github.com/saifecho/create-basebolt/issues"
+  },
+  "author": "Basebolt <hello@basebolt.dev>",
   "license": "MIT"
 }

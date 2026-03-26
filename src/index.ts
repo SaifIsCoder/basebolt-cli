@@ -6,8 +6,8 @@ import { runCLI } from './cli.js';
 async function main() {
   console.log('');
 
-  // ── Big ASCII banner ──────────────────────────────────────────────
-const banner = [
+  // ── ASCII banner — white so it's visible on any terminal ──────────
+  const banner = [
     '  ██████╗  █████╗ ███████╗███████╗██████╗  ██████╗ ██╗  ████████╗',
     '  ██╔══██╗██╔══██╗██╔════╝██╔════╝██╔══██╗██╔═══██╗██║  ╚══██╔══╝',
     '  ██████╔╝███████║███████╗█████╗  ██████╔╝██║   ██║██║     ██║   ',
@@ -15,7 +15,8 @@ const banner = [
     '  ██████╔╝██║  ██║███████║███████╗██████╔╝╚██████╔╝███████╗██║   ',
     '  ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝╚═════╝  ╚═════╝ ╚══════╝╚═╝   ',
   ];
-  console.log(chalk.hex('#22c55e').bold(banner.join('\n')));
+
+  console.log(chalk.white.bold(banner.join('\n')));
   console.log('');
   console.log(
     chalk.gray('  ') +
@@ -26,7 +27,7 @@ const banner = [
     chalk.gray('  Scaffold a production-ready Next.js SaaS in under 90 seconds.\n')
   );
 
-  p.intro(chalk.bgHex('#22c55e').black('  basebolt  '));``
+  p.intro(chalk.bgHex('#D97706').black('  basebolt  '));
 
   try {
     await runCLI();
