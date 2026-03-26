@@ -147,7 +147,7 @@ export async function runCLI(): Promise<void> {
   p.note(
     [
       chalk.white(`cd ${answers.projectName}`),
-      chalk.white('npm install'),
+      chalk.white('npm install --legacy-peer-deps'),
       chalk.white('cp .env.example .env.local'),
       chalk.gray('# Fill in your Supabase + auth keys'),
       chalk.white('npm run dev'),

@@ -10,6 +10,6 @@ function vercelJson(): string {
     framework: 'nextjs',
     buildCommand: 'npm run build',
     devCommand: 'npm run dev',
-    installCommand: 'npm install',
+    installCommand: 'npm install --legacy-peer-deps',
   }, null, 2);
 }

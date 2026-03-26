@@ -125,20 +125,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand:  { DEFAULT: '#381932', foreground: '#ffffff', light: '#4a2044' },
-        accent: { DEFAULT: '#D97706', foreground: '#ffffff' },
+        brand:  { DEFAULT: '#6366f1', foreground: '#ffffff', light: '#818cf8', glow: 'rgba(99, 102, 241, 0.4)' },
+        accent: { DEFAULT: '#f43f5e', foreground: '#ffffff' },
+        canvas: { DEFAULT: '#09090b', surface: '#18181b', border: '#27272a' }
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       animation: {
-        'fade-in':    'fadeIn 0.5s ease-in-out',
-        'slide-up':   'slideUp 0.4s ease-out',
-        'ping-slow':  'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'fade-in':    'fadeIn 0.5s ease-in-out forwards',
+        'fade-up':    'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'float':      'float 6s ease-in-out infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'slide-up':   'slideUp 0.4s ease-out forwards',
+        'border-beam': 'borderBeam 4s linear infinite',
       },
       keyframes: {
         fadeIn:  { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+        fadeUp:  { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+        float:   { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
         slideUp: { '0%': { transform: 'translateY(10px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+        borderBeam: { '100%': { transform: 'rotate(1turn)' } },
       },
     },
   },
@@ -280,7 +287,7 @@ function readme(a: CLIAnswers): string {
 
 \`\`\`bash
 # 1. Install dependencies
-npm install
+npm install --legacy-peer-deps
 
 # 2. Set up environment
 cp .env.example .env.local
@@ -464,46 +471,55 @@ function globalsCss(): string {
 
 @theme {
   --color-background:   hsl(0 0% 100%);
-  --color-foreground:   hsl(222 84% 5%);
+  --color-foreground:   hsl(240 10% 4%);
   --color-card:         hsl(0 0% 100%);
-  --color-border:       hsl(214 32% 91%);
-  --color-input:        hsl(214 32% 91%);
-  --color-ring:         hsl(262 83% 58%);
-  --color-brand:        hsl(320 40% 20%);
-  --color-accent:       hsl(38 92% 50%);
-  --radius:             0.5rem;
+  --color-border:       hsl(240 6% 90%);
+  --color-input:        hsl(240 6% 90%);
+  --color-ring:         hsl(228 89% 68%);
+  --color-brand:        hsl(228 89% 68%);
+  --color-accent:       hsl(349 89% 60%);
+  --radius:             0.75rem;
 }
 
 @layer base {
   :root {
     --background:   0 0% 100%;
-    --foreground:   222 84% 5%;
+    --foreground:   240 10% 4%;
     --card:         0 0% 100%;
-    --border:       214 32% 91%;
-    --input:        214 32% 91%;
-    --ring:         262 83% 58%;
-    --radius:       0.5rem;
+    --border:       240 6% 90%;
+    --input:        240 6% 90%;
+    --ring:         228 89% 68%;
+    --brand:        228 89% 68%;
+    --radius:       0.75rem;
   }
 
   .dark {
-    --background: 222 84% 5%;
-    --foreground: 210 40% 98%;
-    --card:       222 47% 11%;
-    --border:     217 33% 17%;
-    --input:      217 33% 17%;
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+    --card:       240 10% 6%;
+    --border:     240 6% 15%;
+    --input:      240 6% 15%;
+    --ring:       228 89% 68%;
+    --brand:      228 89% 68%;
   }
 }
 
 @layer base {
   * { @apply border-border; }
-  body { @apply bg-background text-foreground antialiased; }
+  body { @apply bg-background text-foreground antialiased selection:bg-brand/30 selection:text-foreground; }
   h1, h2, h3, h4, h5, h6 { @apply font-semibold tracking-tight; }
 }
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
   .gradient-brand {
-    @apply bg-gradient-to-r from-brand to-purple-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent;
+  }
+  .glass-card {
+    @apply bg-white/5 dark:bg-black/40 backdrop-blur-xl border border-white/10 dark:border-white/5;
+  }
+  .glass-button {
+    @apply relative overflow-hidden bg-white/10 dark:bg-white/5 hover:bg-white/20 dark:hover:bg-white/10 border border-white/20 dark:border-white/10 backdrop-blur-md transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.2)];
   }
 }
 `;

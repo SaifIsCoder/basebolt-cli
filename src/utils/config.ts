@@ -34,7 +34,7 @@ ${features}
 
 ## Next Steps
 1. \`cd ${a.projectName}\`
-2. \`npm install\`
+2. \`npm install --legacy-peer-deps\`
 3. \`cp .env.example .env.local\`  — fill in your keys
 4. \`npm run db:push\`             — push schema to database
 5. \`npm run db:seed\`             — seed with test users
