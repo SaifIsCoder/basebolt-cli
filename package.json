@@ -1,7 +1,7 @@
 {
   "name": "create-basebolt",
-  "version": "0.3.0",
-  "description": "Scaffold a production-ready Next.js SaaS in seconds. Full auth, dashboard, database, blog, and SEO \u2014 wired and ready to deploy.",
+  "version": "0.3.1",
+  "description": "Scaffold a production-ready Next.js SaaS in seconds. Full auth, dashboard, database, blog, and SEO — wired and ready to deploy.",
   "type": "module",
   "bin": {
     "create-basebolt": "./dist/index.js"
